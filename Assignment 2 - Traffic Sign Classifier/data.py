@@ -1,8 +1,10 @@
-import pickle
+import _pickle as pickle
 from sklearn.model_selection import train_test_split
 
 TRAIN_SET_DATA_FILE = '../../datasets/traffic-signs-data/train.p'
+TRAIN_SET_DATA_EXPANDED_FILE = '../../datasets/expanded.p'
 TEST_SET_DATA_FILE = '../../datasets/traffic-signs-data/test.p'
+TEST_SET_DATA_EXPANDED_FILE = '../../datasets/expanded_test.p'
 
 def load_data(fname):
     with open(fname, mode='rb') as f:

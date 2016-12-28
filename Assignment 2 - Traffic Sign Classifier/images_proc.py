@@ -33,11 +33,14 @@ def preprocess_images(images):
     img_max = np.max(images)
     img_mean = np.mean(images)
     delta = img_max - img_min
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
     for i in range(0, len(images)):
         n_img = images[i]
         n_img = cv2.cvtColor(n_img, cv2.COLOR_RGB2GRAY)
-        n_img = (n_img - img_mean)/delta
+        n_img = cv2.equalizeHist(n_img)
+        #n_img=clahe.apply(n_img)
         n_img = cv2.filter2D(n_img, -1, kernel_sharpen_1)
+        n_img = (n_img - img_mean)/delta
 
         norm_images[i] = np.reshape(n_img, (32,32,1))
 
