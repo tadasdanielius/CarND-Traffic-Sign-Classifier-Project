@@ -1,2 +1,0 @@
-model_checkpoint_path: "traffic_sign_classifier_exp.ckpt"
-all_model_checkpoint_paths: "traffic_sign_classifier_exp.ckpt"
